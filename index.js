@@ -75,17 +75,16 @@ app.get('/tasks/edit-text', (req, res) => {
 
 app.get('/tasks/delete', (req, res) => {
   let taskId = req.query.taskId;
-  let result = tasks;
-  result = result.filter((e) => e.taskId != taskId);
+  tasks = tasks.filter((e) => e.taskId != taskId);
   console.log(tasks);
-  res.json({ tasks: result });
+  res.json({ tasks: tasks });
 });
 
 app.get('/tasks/filter-by-priority', (req, res) => {
   let priority = req.query.priority;
   let result = tasks;
   result = result.filter((e) => e.priority == priority);
-  console.log(tasks);
+  console.log(result);
   res.json({ tasks: result });
 });
 
